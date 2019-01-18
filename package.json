@@ -1,0 +1,31 @@
+{
+  "name": "@primer/sync",
+  "version": "1.0.0",
+  "description": "Keep your Primer modules in sync!",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "index.js",
+  "bin": {
+    "primer-sync": "cli.js"
+  },
+  "scripts": {
+    "pretest": "./cli.js --dest-dir=test",
+    "test": "node-sass --include-path=test test/primer/index.scss > test/primer.css"
+  },
+  "keywords": [],
+  "author": "GitHub, Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "cosmiconfig": "^5.0.7",
+    "fs-extra": "^7.0.1",
+    "globby": "^9.0.0",
+    "primer-utilities": "^4.14.3",
+    "resolve": "^1.9.0",
+    "yargs": "^12.0.5"
+  },
+  "devDependencies": {
+    "node-sass": "^4.11.0",
+    "primer": "latest"
+  }
+}
