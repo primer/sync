@@ -11,7 +11,7 @@
   },
   "main": "index.js",
   "bin": {
-    "primer-sync": "cli.js"
+    "@primer/sync": "cli.js"
   },
   "scripts": {
     "pretest": "./cli.js --dest-dir=test",
