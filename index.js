@@ -1,8 +1,8 @@
 const fse = require('fs-extra')
 const globby = require('globby')
-const {dirname, isAbsolute, join, resolve} = require('path')
+const {dirname, join} = require('path')
 
-module.exports = function getPathMap(options) {
+module.exports = function sync(options) {
   const cwd = process.cwd()
 
   let {
@@ -11,9 +11,6 @@ module.exports = function getPathMap(options) {
     packages = ['primer', 'primer-*'],
     fileGlob = '**/*.scss'
   } = options
-
-  if (!isAbsolute(sourceDir)) sourceDir = join(cwd, sourceDir)
-  if (!isAbsolute(destDir)) destDir = join(cwd, destDir)
 
   return getTasks({sourceDir, destDir, packages, fileGlob})
     .then(tasks => {
