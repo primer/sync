@@ -1,6 +1,6 @@
 {
   "name": "@primer/sync",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Keep your Primer CSS modules in sync!",
   "keywords": [
     "primer",
