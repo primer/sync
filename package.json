@@ -1,7 +1,8 @@
 {
   "name": "@primer/sync",
   "version": "1.0.0",
-  "description": "Keep your Primer modules in sync!",
+  "description": "Keep your Primer CSS modules in sync!",
+  "keywords": ["primer", "primer-css"],
   "publishConfig": {
     "access": "public"
   },
@@ -13,7 +14,6 @@
     "pretest": "./cli.js --dest-dir=test",
     "test": "node-sass --include-path=test test/primer/index.scss > test/primer.css"
   },
-  "keywords": [],
   "author": "GitHub, Inc.",
   "license": "MIT",
   "dependencies": {
@@ -24,8 +24,10 @@
     "resolve": "^1.9.0",
     "yargs": "^12.0.5"
   },
+  "peerDependencies": {
+    "primer": "*"
+  },
   "devDependencies": {
-    "node-sass": "^4.11.0",
-    "primer": "latest"
+    "node-sass": "^4.11.0"
   }
 }
