@@ -1,8 +1,11 @@
 {
   "name": "@primer/sync",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Keep your Primer CSS modules in sync!",
-  "keywords": ["primer", "primer-css"],
+  "keywords": [
+    "primer",
+    "primer-css"
+  ],
   "publishConfig": {
     "access": "public"
   },
