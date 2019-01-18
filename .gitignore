@@ -1,2 +1,2 @@
 *.log
-test/
+__test__/

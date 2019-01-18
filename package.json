@@ -14,8 +14,9 @@
     "primer-sync": "cli.js"
   },
   "scripts": {
-    "pretest": "./cli.js --dest-dir=test",
-    "test": "node-sass --include-path=test test/primer/index.scss > test/primer.css"
+    "pretest": "rm -rf __test__; ./cli.js __test__",
+    "test": "node-sass --include-path=__test__ __test__/primer/index.scss > __test__/primer.css",
+    "posttest": "du -h __test__/primer.css"
   },
   "author": "GitHub, Inc.",
   "license": "MIT",
