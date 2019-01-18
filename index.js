@@ -2,19 +2,26 @@ const fse = require('fs-extra')
 const globby = require('globby')
 const {dirname, join} = require('path')
 
+const DEFAULT_CONFIG = {
+  from: 'node_modules',
+  to: '_sass',
+  packages: 'primer{,-*}',
+  files: '**/*.scss'
+}
+
 module.exports = function sync(options) {
   const cwd = process.cwd()
 
-  let {
-    sourceDir = 'node_modules',
-    destDir = '_sass',
-    packages = ['primer', 'primer-*'],
-    fileGlob = '**/*.scss'
-  } = options
+  const config = Object.assign(
+    {},
+    DEFAULT_CONFIG,
+    options
+  )
+  console.warn('config:', JSON.stringify(config))
 
-  return getTasks({sourceDir, destDir, packages, fileGlob})
+  return getTasks(config)
     .then(tasks => {
-      if (options.dryRun) {
+      if (config.dryRun) {
         return tasks
       } else {
         return Promise.all(
@@ -24,23 +31,20 @@ module.exports = function sync(options) {
     })
 }
 
-function getTasks({sourceDir, destDir, packages, fileGlob}) {
-  return globby(packages, {cwd: sourceDir, expandDirectories: false, onlyFiles: false})
+module.exports.defaults = DEFAULT_CONFIG
+
+function getTasks({from, to, packages, files}) {
+  return globby(packages, {cwd: from, expandDirectories: false, onlyFiles: false})
     .then(packageDirs => {
-      console.warn(`got ${packageDirs.length} package dirs:`)
-      for (const dir of packageDirs) {
-        console.warn(`- ${dir}`)
-      }
-      const globs = ['!**/node_modules', ...packageDirs.map(dir => join(dir, fileGlob))]
-      console.warn(`searching for globs in ${sourceDir}:`)
-      for (const glob of globs) {
-        console.warn(`- ${glob}`)
-      }
-      return globby(globs, {cwd: sourceDir, onlyFiles: true})
+      const globs = [
+        '!**/node_modules',
+        ...packageDirs.map(dir => join(dir, files))
+      ]
+      return globby(globs, {cwd: from, onlyFiles: true})
     })
     .then(paths => paths.map(path => ({
-      source: join(sourceDir, path),
-      dest: join(destDir, path)
+      source: join(from, path),
+      dest: join(to, path)
     })))
 }
 
