@@ -6,7 +6,7 @@ const DEFAULT_CONFIG = {
   from: 'node_modules',
   to: '_sass',
   packages: 'primer{,-*}',
-  files: '**/*.scss'
+  files: '**/*.{scss,woff}'
 }
 
 module.exports = function sync(options) {
