@@ -19,7 +19,7 @@ If you plan on updating Primer CSS regularly, you should add it as a dev depende
 npm i -D @primer/sync
 ```
 
-Then, whenever you update your `primer` or `primer-*` dependencies, you can run it with:
+Then, whenever you update your `@primer/css` dependency, you can run it with:
 
 ```sh
 npx primer-sync
@@ -37,7 +37,7 @@ Options:
   --help, -h      Show help                                            [boolean]
   --version       Show version number                                  [boolean]
   --from                                      [string] [default: "node_modules"]
-  --packages, -p                               [string] [default: "primer{,-*}"]
+  --packages, -p                               [string] [default: "@primer/css"]
   --files, -f                                             [default: "**/*.scss"]
   --dry-run, -n                                                        [boolean]
 ```
@@ -48,6 +48,7 @@ For instance:
   `node_modules` to a directory named `foo` in your current working directory.
 * `primer-sync --from ../node_modules src/_sass` will tell it to look for your
   npm modules in `../node_modules` and copy them to `src/_sass`.
+* `primer-sync --packages "primer{,-*}"` will copy `primer` and `primer-*` SCSS files. (Use this with `primer` dependencies prior to v12.0.0.)
 * `primer-sync --files '**/*.md'` will copy only Markdown (documentation) files
   rather than the SCSS sources.
 * `primer-sync --dry-run` (or `primer-sync -n`) will print the copy operations
