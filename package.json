@@ -1,6 +1,6 @@
 {
   "name": "@primer/sync",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Keep your Primer CSS modules in sync!",
   "keywords": [
     "primer",
@@ -15,21 +15,23 @@
   },
   "scripts": {
     "pretest": "rm -rf __test__; ./cli.js __test__",
-    "test": "node-sass --include-path=__test__ __test__/primer/index.scss > __test__/primer.css",
+    "test": "node-sass --include-path=__test__ __test__/@primer/css/index.scss > __test__/primer.css",
     "posttest": "du -h __test__/primer.css"
   },
   "author": "GitHub, Inc.",
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/seshrs/sync"
+  },
   "dependencies": {
     "cosmiconfig": "^5.0.7",
     "fs-extra": "^7.0.1",
     "globby": "^9.0.0",
-    "primer-utilities": "^4.14.3",
     "resolve": "^1.9.0",
     "yargs": "^12.0.5"
   },
   "peerDependencies": {
-    "primer": "*"
+    "@primer/css": ">12"
   },
   "devDependencies": {
     "node-sass": "^4.11.0"
