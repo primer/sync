@@ -21,7 +21,7 @@
   "author": "GitHub, Inc.",
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/seshrs/sync"
+    "url": "https://github.com/primer/sync"
   },
   "dependencies": {
     "cosmiconfig": "^5.0.7",
