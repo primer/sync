@@ -5,7 +5,7 @@ const {dirname, join} = require('path')
 const DEFAULT_CONFIG = {
   from: 'node_modules',
   to: '_sass',
-  packages: 'primer{,-*}',
+  packages: '@primer',
   files: '**/*.{scss,woff}'
 }
 
