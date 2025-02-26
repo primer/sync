@@ -34,6 +34,6 @@
     "@primer/css": ">12"
   },
   "devDependencies": {
-    "node-sass": "^4.11.0"
+    "node-sass": "^9.0.0"
   }
 }
